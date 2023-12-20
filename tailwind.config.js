@@ -7,6 +7,7 @@ export default {
       salmon: "#fc6c4c",
       white: "#ffffff",
       black: "#19232b",
+      gray: "#bcc0c6",
     },
     extend: {},
   },
