@@ -18,7 +18,7 @@ const useMultistepForm = (steps: ReactElement[]) => {
     });
   };
 
-  return { currentStep, next, back };
+  return { currentStep, next, back, steps, step: steps[currentStep] };
 };
 
 export default useMultistepForm;

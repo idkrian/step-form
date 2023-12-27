@@ -1,9 +1,14 @@
-import { Formik } from "formik";
 import PersonalInformation from "./pages/PersonalInformation";
+import useMultistepForm from "./contexts/useMultistepForm";
+import SkillLevel from "./pages/SkillLevel";
 
 function App() {
+  const { step, next, back } = useMultistepForm([
+    <PersonalInformation />,
+    <SkillLevel />,
+  ]);
   return (
-    <div className="bg-white rounded-xl p-6">
+    <div className="bg-white rounded-xl p-8">
       <div className="flex items-center">
         <div className="bg-salmon flex justify-center items-center px-4 py-2 rounded-full text-white">
           1
@@ -23,13 +28,21 @@ function App() {
       </div>
       <div className="border my-6 border-gray" />
 
-      <PersonalInformation />
+      {step}
 
       <div className="border border-gray my-10" />
-      <div className="flex justify-end">
+      <div className="flex justify-between">
+        <button
+          className="text-salmon bg-white border border-salmon p-2 w-32 rounded-xl"
+          type="submit"
+          onClick={back}
+        >
+          Go Back
+        </button>
         <button
           className="bg-salmon text-white p-2 w-32 rounded-xl"
           type="submit"
+          onClick={next}
         >
           Next Step
         </button>
