@@ -1,5 +1,5 @@
 import TextInput from "../atoms/TextInput";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { IFormValues } from "../helpers/interfaces";
 const PersonalInformation = () => {
   const {
@@ -7,9 +7,9 @@ const PersonalInformation = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormValues>();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormValues> = (data) => console.log(data);
   return (
-    <>
+    <div>
       <div>
         <h1 className="text-3xl font-semibold">Personal Information</h1>
         <p>
@@ -18,7 +18,7 @@ const PersonalInformation = () => {
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 my-6 gap-4"
+        className="grid grid-cols-2 my-5 gap-y-4 gap-x-10"
       >
         <TextInput
           label={"Full Name"}
@@ -26,18 +26,39 @@ const PersonalInformation = () => {
           register={register}
           required
           errors={errors}
+          registerName={"name"}
+          placeholder={"John Wick"}
         />
-        {/* <input defaultValue="test" {...register("example")} /> */}
-        <button type="submit">AAAAAAAAA</button>
-        {/* <TextInput label={"Email Address"} name={"email"} type={"email"} />
-        <TextInput label={"Phone Number"} name={"phone"} type={"text"} />
+        <TextInput
+          label={"Email Adress"}
+          type={"text"}
+          register={register}
+          required
+          errors={errors}
+          registerName={"email"}
+          placeholder={"name@email.com"}
+        />
+        <TextInput
+          label={"Phone Number"}
+          type={"text"}
+          register={register}
+          required
+          errors={errors}
+          registerName={"phone"}
+          placeholder={"+91 992942453"}
+        />
         <TextInput
           label={"Portfolio/Github Link"}
-          name={"portfolio"}
           type={"text"}
-        /> */}
+          register={register}
+          required
+          errors={errors}
+          registerName={"portfolio"}
+          placeholder={"github.com/idkrian"}
+        />
+        {/* <button type="submit">AAAAAAAAA</button> */}
       </form>
-    </>
+    </div>
   );
 };
 
