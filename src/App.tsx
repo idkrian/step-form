@@ -8,7 +8,7 @@ function App() {
     <SkillLevel />,
   ]);
   return (
-    <div className="bg-white rounded-xl p-8">
+    <div className="bg-white rounded-xl p-8 w-1/3">
       <div className="flex items-center">
         <div className="bg-salmon flex justify-center items-center px-4 py-2 rounded-full text-white">
           1
