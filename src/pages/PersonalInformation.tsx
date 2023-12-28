@@ -1,6 +1,7 @@
 import TextInput from "../atoms/TextInput";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IFormValues } from "../helpers/interfaces";
+import Title from "../atoms/Title";
 const PersonalInformation = () => {
   const {
     register,
@@ -10,15 +11,15 @@ const PersonalInformation = () => {
   const onSubmit: SubmitHandler<IFormValues> = (data) => console.log(data);
   return (
     <div>
-      <div>
-        <h1 className="text-3xl font-semibold">Personal Information</h1>
-        <p>
-          Please provide your personal details so we can get to know you better.
-        </p>
-      </div>
+      <Title
+        label={"Personal Information"}
+        subtitle={
+          "Please provide your personal details so we can get to know you better. "
+        }
+      />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 my-5 gap-y-4 gap-x-10"
+        className="grid grid-cols-2 my-9 gap-y-4 gap-x-10"
       >
         <TextInput
           label={"Full Name"}

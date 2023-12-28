@@ -5,15 +5,18 @@ import {
   PiRocketLaunchBold,
   PiTrophyBold,
 } from "react-icons/pi";
+import Title from "../atoms/Title";
 
 const SkillLevel = () => {
   return (
     <div>
-      <div>
-        <h1 className="text-3xl font-semibold">Skill Level</h1>
-        <p>Please tell us about your skill level in frontend development.</p>
-      </div>
-      <div className="grid grid-cols-2 my-5 gap-y-4 gap-x-10">
+      <Title
+        label={"Skill Level"}
+        subtitle={
+          "Please tell us about your skill level in frontend development."
+        }
+      />
+      <div className="grid grid-cols-2 my-8 gap-y-4 gap-x-10">
         <Skill icon={<PiPlantBold size={20} />} />
         <Skill icon={<PiCompassBold size={20} />} />
         <Skill icon={<PiRocketLaunchBold size={20} />} />

@@ -1,11 +1,13 @@
 import PersonalInformation from "./pages/PersonalInformation";
 import useMultistepForm from "./contexts/useMultistepForm";
 import SkillLevel from "./pages/SkillLevel";
+import ChallengePref from "./pages/ChallengePref";
 
 function App() {
   const { step, next, back } = useMultistepForm([
     <PersonalInformation />,
     <SkillLevel />,
+    <ChallengePref />,
   ]);
   // max-w-1/3
   return (
