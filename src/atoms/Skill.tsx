@@ -1,4 +1,9 @@
-const Skill = ({ icon }) => {
+import { ReactElement } from "react";
+
+interface Props {
+  icon: ReactElement;
+}
+const Skill = ({ icon }: Props) => {
   return (
     <div className="group">
       <div className="p-3 border rounded-xl group-hover:border-salmon border-gray flex align-middle items-center gap-4 cursor-pointer">

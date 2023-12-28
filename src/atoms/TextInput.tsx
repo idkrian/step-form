@@ -25,7 +25,7 @@ const TextInput = ({
       <label className="font-semibold">{label}</label>
       <input
         type={type}
-        className="p-2 border-2 rounded-xl border-gray focus:border-salmon focus:border-2 focus:outline-none focus:ring-0 font-normal w-72"
+        className="p-2 border-2 rounded-xl border-gray focus:border-salmon focus:border-2 focus:outline-none focus:ring-0 font-normal w-full"
         placeholder={placeholder}
         {...register(registerName, { required })}
       />
