@@ -19,7 +19,7 @@ const PersonalInformation = () => {
       />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 my-9 gap-y-4 gap-x-10"
+        className="grid grid-cols-2 my-6 gap-y-4 gap-x-10"
       >
         <TextInput
           label={"Full Name"}
