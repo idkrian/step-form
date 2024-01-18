@@ -9,7 +9,6 @@ const StepCircle = ({ value, currentStep }: Props) => {
   function handleActive(index: number) {
     return currentStep >= index ? isActive : isOffline;
   }
-  console.log(value);
 
   return (
     <div

@@ -2,13 +2,22 @@ import TextInput from "../atoms/TextInput";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IFormValues } from "../helpers/interfaces";
 import Title from "../atoms/Title";
-const PersonalInformation = () => {
+import { useEffect } from "react";
+interface Props {
+  handleValidForm: (value: boolean) => void;
+}
+const PersonalInformation = ({ handleValidForm }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<IFormValues>();
   const onSubmit: SubmitHandler<IFormValues> = (data) => console.log(data);
+
+  useEffect(() => {
+    handleValidForm(isValid);
+  });
+
   return (
     <div>
       <Title
@@ -20,6 +29,7 @@ const PersonalInformation = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-2 my-6 gap-y-4 gap-x-10"
+        id="PersonalInformation"
       >
         <TextInput
           label={"Full Name"}
@@ -57,7 +67,6 @@ const PersonalInformation = () => {
           registerName={"portfolio"}
           placeholder={"github.com/idkrian"}
         />
-        {/* <button type="submit">AAAAAAAAA</button> */}
       </form>
     </div>
   );
