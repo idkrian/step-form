@@ -17,10 +17,13 @@ const SkillLevel = () => {
         }
       />
       <div className="grid grid-cols-2 my-8 gap-y-4 gap-x-10">
-        <Skill icon={<PiPlantBold size={20} />} />
-        <Skill icon={<PiCompassBold size={20} />} />
-        <Skill icon={<PiRocketLaunchBold size={20} />} />
-        <Skill icon={<PiTrophyBold size={20} />} />
+        <Skill icon={<PiPlantBold size={20} />} label={"Begginer"} />
+        <Skill icon={<PiCompassBold size={20} />} label={"Intermediate"} />
+        <Skill icon={<PiRocketLaunchBold size={20} />} label={"Advanced"} />
+        <Skill
+          icon={<PiTrophyBold size={20} label={"Expert"} />}
+          label={"Expert"}
+        />
       </div>
     </div>
   );

@@ -2,15 +2,16 @@ import { ReactElement } from "react";
 
 interface Props {
   icon: ReactElement;
+  label: string;
 }
-const Skill = ({ icon }: Props) => {
+const Skill = ({ icon, label }: Props) => {
   return (
     <div className="group">
       <div className="p-3 border rounded-xl group-hover:border-salmon border-gray flex align-middle items-center gap-4 cursor-pointer">
         <div className="bg-salmon w-fit p-2 rounded-full text-white">
           {icon}
         </div>
-        <p className="font-semibold">Begginer</p>
+        <p className="font-semibold">{label}</p>
       </div>
     </div>
   );

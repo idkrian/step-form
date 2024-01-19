@@ -57,7 +57,7 @@ function App() {
               next();
             }
           }}
-          form="PersonalInformation"
+          form={currentStep === 0 ? "PersonalInformation" : ""}
         >
           Next Step
         </button>
