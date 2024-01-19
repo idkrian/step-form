@@ -7,7 +7,9 @@ import { useState } from "react";
 
 function App() {
   const [validForm, setValidForm] = useState<boolean>();
-
+  const [challengePreferences, setChallengePreferences] = useState<string[]>(
+    []
+  );
   const handleValidForm = (value: boolean) => {
     setValidForm(value);
   };
@@ -15,10 +17,14 @@ function App() {
   const { step, next, back, currentStep } = useMultistepForm([
     <PersonalInformation handleValidForm={handleValidForm} />,
     <SkillLevel />,
-    <ChallengePref />,
+    <ChallengePref
+      setChallengePreferences={setChallengePreferences}
+      challengePreferences={challengePreferences}
+    />,
   ]);
   const isActive = "bg-salmon text-white";
   const isOffline = "bg-lightGray text-black";
+  console.log(challengePreferences);
 
   function handleActive(index: number) {
     return currentStep >= index ? isActive : isOffline;

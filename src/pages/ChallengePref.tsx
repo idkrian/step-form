@@ -1,6 +1,14 @@
+import { Dispatch, SetStateAction } from "react";
 import Challenge from "../atoms/Challenge";
 import Title from "../atoms/Title";
-const ChallengePref = () => {
+interface Props {
+  challengePreferences: string[];
+  setChallengePreferences: Dispatch<SetStateAction<string[]>>;
+}
+const ChallengePref = ({
+  setChallengePreferences,
+  challengePreferences,
+}: Props) => {
   return (
     <div>
       <Title
@@ -10,10 +18,30 @@ const ChallengePref = () => {
         }
       />
       <div className="grid grid-cols-2 my-5 gap-y-4 gap-x-10">
-        <Challenge label={"HTML/CSS/JS"} name={"HTML/CSS/JS"} />
-        <Challenge label={"ReactJS"} name={"ReactJS"} />
-        <Challenge label={"VueJS"} name={"VueJS"} />
-        <Challenge label={"AngularJS"} name={"AngularJS"} />
+        <Challenge
+          setChallengePreferences={setChallengePreferences}
+          challengePreferences={challengePreferences}
+          label={"HTML/CSS/JS"}
+          name={"HTML/CSS/JS"}
+        />
+        <Challenge
+          setChallengePreferences={setChallengePreferences}
+          challengePreferences={challengePreferences}
+          label={"ReactJS"}
+          name={"ReactJS"}
+        />
+        <Challenge
+          setChallengePreferences={setChallengePreferences}
+          challengePreferences={challengePreferences}
+          label={"VueJS"}
+          name={"VueJS"}
+        />
+        <Challenge
+          setChallengePreferences={setChallengePreferences}
+          challengePreferences={challengePreferences}
+          label={"AngularJS"}
+          name={"AngularJS"}
+        />
       </div>
     </div>
   );
