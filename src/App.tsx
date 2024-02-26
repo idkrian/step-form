@@ -4,31 +4,55 @@ import SkillLevel from "./pages/SkillLevel";
 import ChallengePref from "./pages/ChallengePref";
 import StepCircle from "./atoms/StepCircle";
 import { useState } from "react";
+import { IFormValues } from "./helpers/interfaces";
+import Review from "./pages/Review";
 
 function App() {
   const [validForm, setValidForm] = useState<boolean>();
+  const [personalData, setPersonalData] = useState<IFormValues>({
+    name: "",
+    email: "",
+    phone: "",
+    portfolio: "",
+  });
   const [challengePreferences, setChallengePreferences] = useState<string[]>(
     []
   );
+  const [buttonName, setButtonName] = useState<string>("");
+
   const handleValidForm = (value: boolean) => {
     setValidForm(value);
   };
 
+  const nextValidForm = () => {
+    if (validForm) {
+      next();
+    }
+  };
   const { step, next, back, currentStep } = useMultistepForm([
-    <PersonalInformation handleValidForm={handleValidForm} />,
-    <SkillLevel />,
+    <PersonalInformation
+      handleValidForm={handleValidForm}
+      setPersonalData={setPersonalData}
+      nextValidForm={nextValidForm}
+    />,
+    <SkillLevel buttonName={buttonName} setButtonName={setButtonName} />,
     <ChallengePref
       setChallengePreferences={setChallengePreferences}
+      challengePreferences={challengePreferences}
+    />,
+    <Review
+      personalData={personalData}
+      buttonName={buttonName}
       challengePreferences={challengePreferences}
     />,
   ]);
   const isActive = "bg-salmon text-white";
   const isOffline = "bg-lightGray text-black";
-  console.log(challengePreferences);
 
   function handleActive(index: number) {
     return currentStep >= index ? isActive : isOffline;
   }
+
   return (
     <div className="bg-white rounded-xl p-8 w-[42.5rem] m-12">
       <div className="flex items-center">
@@ -55,18 +79,25 @@ function App() {
         >
           Go Back
         </button>
-        <button
-          className="bg-salmon text-white p-2 w-32 rounded-xl"
-          type="submit"
-          onClick={() => {
-            if (validForm) {
-              next();
-            }
-          }}
-          form={currentStep === 0 ? "PersonalInformation" : ""}
-        >
-          Next Step
-        </button>
+        {currentStep === 0 ? (
+          <button
+            className="bg-salmon text-white p-2 w-32 rounded-xl"
+            type="submit"
+            form={"PersonalInformation"}
+          >
+            Next Step
+          </button>
+        ) : (
+          <button
+            className="bg-salmon text-white p-2 w-32 rounded-xl"
+            type="submit"
+            onClick={() => {
+              nextValidForm();
+            }}
+          >
+            Next Step
+          </button>
+        )}
       </div>
     </div>
   );

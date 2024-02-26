@@ -9,6 +9,7 @@ export default {
       black: "#19232b",
       gray: "#bcc0c6",
       lightGray: "#eceef1",
+      grayText: "#515a69",
     },
     extend: {},
   },

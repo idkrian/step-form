@@ -2,17 +2,26 @@ import TextInput from "../atoms/TextInput";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IFormValues } from "../helpers/interfaces";
 import Title from "../atoms/Title";
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 interface Props {
   handleValidForm: (value: boolean) => void;
+  setPersonalData: Dispatch<SetStateAction<IFormValues>>;
+  nextValidForm: () => void;
 }
-const PersonalInformation = ({ handleValidForm }: Props) => {
+const PersonalInformation = ({
+  handleValidForm,
+  setPersonalData,
+  nextValidForm,
+}: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<IFormValues>();
-  const onSubmit: SubmitHandler<IFormValues> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormValues> = (data) => {
+    setPersonalData(data);
+    nextValidForm();
+  };
 
   useEffect(() => {
     handleValidForm(isValid);
@@ -41,7 +50,7 @@ const PersonalInformation = ({ handleValidForm }: Props) => {
           placeholder={"John Wick"}
         />
         <TextInput
-          label={"Email Adress"}
+          label={"Email Address"}
           type={"text"}
           register={register}
           required

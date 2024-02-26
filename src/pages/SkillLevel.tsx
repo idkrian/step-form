@@ -6,12 +6,12 @@ import {
   PiTrophyBold,
 } from "react-icons/pi";
 import Title from "../atoms/Title";
-import { useState } from "react";
-
-const SkillLevel = () => {
-  const [buttonName, setButtonName] = useState<string>("");
-  console.log(buttonName);
-
+import { Dispatch, SetStateAction } from "react";
+interface Props {
+  buttonName: string;
+  setButtonName: Dispatch<SetStateAction<string>>;
+}
+const SkillLevel = ({ buttonName, setButtonName }: Props) => {
   return (
     <div>
       <Title
