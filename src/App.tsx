@@ -19,6 +19,7 @@ function App() {
     []
   );
   const [buttonName, setButtonName] = useState<string>("");
+  console.log(buttonName);
 
   const handleValidForm = (value: boolean) => {
     setValidForm(value);

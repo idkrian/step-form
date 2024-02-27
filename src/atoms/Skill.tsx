@@ -4,8 +4,9 @@ interface Props {
   icon: ReactElement;
   label: string;
   setButtonName: Dispatch<SetStateAction<string>>;
+  buttonName: string;
 }
-const Skill = ({ icon, label, setButtonName }: Props) => {
+const Skill = ({ icon, label, setButtonName, buttonName }: Props) => {
   return (
     <button
       className="group"
@@ -14,11 +15,24 @@ const Skill = ({ icon, label, setButtonName }: Props) => {
       }}
       name={label}
     >
-      <div className="p-3 border rounded-xl group-hover:border-salmon group-focus:bg-salmon border-gray flex align-middle items-center gap-4 cursor-pointer">
-        <div className="bg-salmon group-focus:bg-white w-fit p-2 rounded-full text-white group-focus:text-salmon">
+      <div
+        className={`p-3 border rounded-xl flex align-middle items-center gap-4 cursor-pointer ${
+          buttonName === label ? "border-salmon bg-salmon" : "border-gray"
+        }  `}
+      >
+        <div
+          className={`w-fit p-2 rounded-full  ${
+            buttonName === label
+              ? "bg-white text-salmon"
+              : "text-white bg-salmon"
+          }`}
+        >
           {icon}
         </div>
-        <p className="font-semibold group-focus:text-white">{label}</p>
+
+        <p className={`font-semibold ${buttonName === label && "text-white"}`}>
+          {label}
+        </p>
       </div>
     </button>
   );

@@ -25,21 +25,25 @@ const SkillLevel = ({ buttonName, setButtonName }: Props) => {
           icon={<PiPlantBold size={20} />}
           label={"Begginer"}
           setButtonName={setButtonName}
+          buttonName={buttonName}
         />
         <Skill
           icon={<PiCompassBold size={20} />}
           label={"Intermediate"}
           setButtonName={setButtonName}
+          buttonName={buttonName}
         />
         <Skill
           icon={<PiRocketLaunchBold size={20} />}
           label={"Advanced"}
           setButtonName={setButtonName}
+          buttonName={buttonName}
         />
         <Skill
           icon={<PiTrophyBold size={20} label={"Expert"} />}
           setButtonName={setButtonName}
           label={"Expert"}
+          buttonName={buttonName}
         />
       </div>
     </div>
