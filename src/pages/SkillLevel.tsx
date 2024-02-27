@@ -20,7 +20,7 @@ const SkillLevel = ({ buttonName, setButtonName }: Props) => {
           "Please tell us about your skill level in frontend development."
         }
       />
-      <div className="grid grid-cols-2 my-8 gap-y-4 gap-x-10">
+      <div className="grid grid-cols-2 my-6 gap-y-4 gap-x-10">
         <Skill
           icon={<PiPlantBold size={20} />}
           label={"Begginer"}

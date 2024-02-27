@@ -6,6 +6,7 @@ import StepCircle from "./atoms/StepCircle";
 import { useState } from "react";
 import { IFormValues } from "./helpers/interfaces";
 import Review from "./pages/Review";
+import Congrats from "./pages/Congrats";
 
 function App() {
   const [validForm, setValidForm] = useState<boolean>();
@@ -43,6 +44,7 @@ function App() {
       buttonName={buttonName}
       challengePreferences={challengePreferences}
     />,
+    <Congrats />,
   ]);
   const isActive = "bg-salmon text-white";
   const isOffline = "bg-lightGray text-black";
@@ -52,51 +54,61 @@ function App() {
   }
 
   return (
-    <div className="bg-white rounded-xl p-8 w-[42.5rem] m-12">
-      <div className="flex items-center">
-        <StepCircle value={0} currentStep={currentStep} />
-        <div className={`w-full ${handleActive(1)} mx-4 h-2 rounded-xl`} />
+    <div className="flex flex-col justify-between bg-white rounded-xl p-8 w-[42.5rem] min-h-[32rem] m-12">
+      {currentStep < 4 && (
+        <>
+          <div className="flex items-center">
+            <StepCircle value={0} currentStep={currentStep} />
+            <div className={`w-full ${handleActive(1)} mx-4 h-2 rounded-xl`} />
 
-        <StepCircle value={1} currentStep={currentStep} />
+            <StepCircle value={1} currentStep={currentStep} />
 
-        <div className={`w-full ${handleActive(2)} mx-4 h-2 rounded-xl`} />
-        <StepCircle value={2} currentStep={currentStep} />
+            <div className={`w-full ${handleActive(2)} mx-4 h-2 rounded-xl`} />
+            <StepCircle value={2} currentStep={currentStep} />
 
-        <div className={`w-full ${handleActive(3)} mx-4 h-2 rounded-xl`} />
-        <StepCircle value={3} currentStep={currentStep} />
-      </div>
-      <div className="border my-6 border-lightGray" />
+            <div className={`w-full ${handleActive(3)} mx-4 h-2 rounded-xl`} />
+            <StepCircle value={3} currentStep={currentStep} />
+          </div>
+          <div className="border my-6 border-lightGray" />
+        </>
+      )}
+
       {step}
-      <div className="border border-lightGray my-10" />
 
-      <div className="flex justify-between">
-        <button
-          className="text-salmon bg-white border border-salmon p-2 w-32 rounded-xl"
-          type="submit"
-          onClick={back}
-        >
-          Go Back
-        </button>
-        {currentStep === 0 ? (
-          <button
-            className="bg-salmon text-white p-2 w-32 rounded-xl"
-            type="submit"
-            form={"PersonalInformation"}
-          >
-            Next Step
-          </button>
-        ) : (
-          <button
-            className="bg-salmon text-white p-2 w-32 rounded-xl"
-            type="submit"
-            onClick={() => {
-              nextValidForm();
-            }}
-          >
-            Next Step
-          </button>
-        )}
-      </div>
+      {currentStep < 4 && (
+        <>
+          <div className="border border-lightGray mb-4" />
+
+          <div className="flex justify-between">
+            <button
+              className="text-salmon bg-white border border-salmon p-2 w-32 rounded-xl"
+              type="submit"
+              onClick={back}
+            >
+              Go Back
+            </button>
+            {currentStep === 0 ? (
+              <button
+                className="bg-salmon text-white p-2 w-32 rounded-xl"
+                type="submit"
+                form={"PersonalInformation"}
+              >
+                Next Step
+              </button>
+            ) : (
+              <button
+                className="bg-salmon text-white p-2 w-32 rounded-xl"
+                type="submit"
+                onClick={() => {
+                  nextValidForm();
+                }}
+              >
+                {currentStep === 3 ? "Submit" : "Next Step"}
+              </button>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }

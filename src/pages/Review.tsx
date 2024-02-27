@@ -15,7 +15,7 @@ const Review = ({ personalData, buttonName, challengePreferences }: Props) => {
           "Please review your information to make sure everything is accurate. "
         }
       />
-      <div className="grid grid-cols-3 my-8 gap-y-4 gap-x-10">
+      <div className="grid grid-cols-3 my-5 gap-y-4 gap-x-10">
         <ReviewCard title={"Full Name"} subtitle={personalData!.name} />
         <ReviewCard title={"Email Address"} subtitle={personalData!.email} />
         <ReviewCard title={"Phone Number"} subtitle={personalData!.phone} />
