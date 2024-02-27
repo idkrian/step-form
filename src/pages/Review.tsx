@@ -4,7 +4,7 @@ import { IFormValues } from "../helpers/interfaces";
 interface Props {
   personalData: IFormValues;
   buttonName: string;
-  challengePreferences: string[];
+  challengePreferences: string;
 }
 const Review = ({ personalData, buttonName, challengePreferences }: Props) => {
   return (
@@ -24,12 +24,7 @@ const Review = ({ personalData, buttonName, challengePreferences }: Props) => {
           subtitle={personalData!.portfolio}
         />
         <ReviewCard title={"Skill Level"} subtitle={buttonName} />
-        <ReviewCard
-          title={"Challenge"}
-          subtitle={challengePreferences.map((e) => (
-            <span>{e}</span>
-          ))}
-        />
+        <ReviewCard title={"Challenge"} subtitle={challengePreferences} />
       </div>
     </div>
   );

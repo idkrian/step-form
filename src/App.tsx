@@ -15,11 +15,8 @@ function App() {
     phone: "",
     portfolio: "",
   });
-  const [challengePreferences, setChallengePreferences] = useState<string[]>(
-    []
-  );
+  const [challengePreferences, setChallengePreferences] = useState<string>("");
   const [buttonName, setButtonName] = useState<string>("");
-  console.log(buttonName);
 
   const handleValidForm = (value: boolean) => {
     setValidForm(value);

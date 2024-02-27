@@ -2,8 +2,8 @@ import { Dispatch, SetStateAction } from "react";
 import Challenge from "../atoms/Challenge";
 import Title from "../atoms/Title";
 interface Props {
-  challengePreferences: string[];
-  setChallengePreferences: Dispatch<SetStateAction<string[]>>;
+  setChallengePreferences: Dispatch<SetStateAction<string>>;
+  challengePreferences: string;
 }
 const ChallengePref = ({
   setChallengePreferences,
