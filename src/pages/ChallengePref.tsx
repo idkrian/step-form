@@ -1,14 +1,20 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import Challenge from "../atoms/Challenge";
 import Title from "../atoms/Title";
 interface Props {
   setChallengePreferences: Dispatch<SetStateAction<string>>;
   challengePreferences: string;
+  setReleaseButton: Dispatch<SetStateAction<boolean>>;
 }
 const ChallengePref = ({
   setChallengePreferences,
   challengePreferences,
+  setReleaseButton,
 }: Props) => {
+  useEffect(() => {
+    setChallengePreferences("");
+  }, []);
+
   return (
     <div>
       <Title
@@ -21,24 +27,28 @@ const ChallengePref = ({
         <Challenge
           setChallengePreferences={setChallengePreferences}
           challengePreferences={challengePreferences}
+          setReleaseButton={setReleaseButton}
           label={"HTML/CSS/JS"}
           name={"HTML/CSS/JS"}
         />
         <Challenge
           setChallengePreferences={setChallengePreferences}
           challengePreferences={challengePreferences}
+          setReleaseButton={setReleaseButton}
           label={"ReactJS"}
           name={"ReactJS"}
         />
         <Challenge
           setChallengePreferences={setChallengePreferences}
           challengePreferences={challengePreferences}
+          setReleaseButton={setReleaseButton}
           label={"VueJS"}
           name={"VueJS"}
         />
         <Challenge
           setChallengePreferences={setChallengePreferences}
           challengePreferences={challengePreferences}
+          setReleaseButton={setReleaseButton}
           label={"AngularJS"}
           name={"AngularJS"}
         />

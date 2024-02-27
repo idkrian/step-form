@@ -5,13 +5,21 @@ interface Props {
   label: string;
   setButtonName: Dispatch<SetStateAction<string>>;
   buttonName: string;
+  setReleaseButton: Dispatch<SetStateAction<boolean>>;
 }
-const Skill = ({ icon, label, setButtonName, buttonName }: Props) => {
+const Skill = ({
+  icon,
+  label,
+  setButtonName,
+  buttonName,
+  setReleaseButton,
+}: Props) => {
   return (
     <button
       className="group"
       onClick={() => {
         setButtonName(label);
+        setReleaseButton(true);
       }}
       name={label}
     >

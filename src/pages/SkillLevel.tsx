@@ -6,12 +6,17 @@ import {
   PiTrophyBold,
 } from "react-icons/pi";
 import Title from "../atoms/Title";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 interface Props {
   buttonName: string;
   setButtonName: Dispatch<SetStateAction<string>>;
+  setReleaseButton: Dispatch<SetStateAction<boolean>>;
 }
-const SkillLevel = ({ buttonName, setButtonName }: Props) => {
+const SkillLevel = ({ buttonName, setButtonName, setReleaseButton }: Props) => {
+  useEffect(() => {
+    setButtonName("");
+  }, [setButtonName]);
+
   return (
     <div>
       <Title
@@ -26,24 +31,28 @@ const SkillLevel = ({ buttonName, setButtonName }: Props) => {
           label={"Begginer"}
           setButtonName={setButtonName}
           buttonName={buttonName}
+          setReleaseButton={setReleaseButton}
         />
         <Skill
           icon={<PiCompassBold size={20} />}
           label={"Intermediate"}
           setButtonName={setButtonName}
           buttonName={buttonName}
+          setReleaseButton={setReleaseButton}
         />
         <Skill
           icon={<PiRocketLaunchBold size={20} />}
           label={"Advanced"}
           setButtonName={setButtonName}
           buttonName={buttonName}
+          setReleaseButton={setReleaseButton}
         />
         <Skill
           icon={<PiTrophyBold size={20} label={"Expert"} />}
           setButtonName={setButtonName}
           label={"Expert"}
           buttonName={buttonName}
+          setReleaseButton={setReleaseButton}
         />
       </div>
     </div>

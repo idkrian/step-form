@@ -1,12 +1,23 @@
 import Title from "../atoms/Title";
 import ReviewCard from "../atoms/ReviewCard";
 import { IFormValues } from "../helpers/interfaces";
+import { Dispatch, SetStateAction, useEffect } from "react";
 interface Props {
   personalData: IFormValues;
   buttonName: string;
   challengePreferences: string;
+  setReleaseButton: Dispatch<SetStateAction<boolean>>;
 }
-const Review = ({ personalData, buttonName, challengePreferences }: Props) => {
+const Review = ({
+  personalData,
+  buttonName,
+  challengePreferences,
+  setReleaseButton,
+}: Props) => {
+  useEffect(() => {
+    setReleaseButton(true);
+  });
+
   return (
     <div>
       <Title

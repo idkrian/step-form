@@ -7,11 +7,13 @@ interface Props {
   handleValidForm: (value: boolean) => void;
   setPersonalData: Dispatch<SetStateAction<IFormValues>>;
   nextValidForm: () => void;
+  setReleaseButton: Dispatch<SetStateAction<boolean>>;
 }
 const PersonalInformation = ({
   handleValidForm,
   setPersonalData,
   nextValidForm,
+  setReleaseButton,
 }: Props) => {
   const {
     register,
@@ -25,6 +27,7 @@ const PersonalInformation = ({
 
   useEffect(() => {
     handleValidForm(isValid);
+    setReleaseButton(isValid);
   });
 
   return (

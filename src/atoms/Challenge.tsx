@@ -5,12 +5,14 @@ interface Props {
   name: string;
   setChallengePreferences: Dispatch<SetStateAction<string>>;
   challengePreferences: string;
+  setReleaseButton: Dispatch<SetStateAction<boolean>>;
 }
 const Challenge = ({
   label,
   name,
   setChallengePreferences,
   challengePreferences,
+  setReleaseButton,
 }: Props) => {
   return (
     <div className="group">
@@ -21,7 +23,10 @@ const Challenge = ({
       >
         <input
           type="radio"
-          onClick={() => setChallengePreferences(name)}
+          onClick={() => {
+            setChallengePreferences(name);
+            setReleaseButton(true);
+          }}
           name="challenge"
           value={name}
           className="text-white border-gray accent-salmon hover:bg-salmon w-6 h-6 checked:bg-salmon rounded-md"
